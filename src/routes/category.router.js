@@ -1,0 +1,9 @@
+const express = require('express');
+const categoryController = require('../controllers/category.controller');
+const { authenticateMiddleware } = require('../middlewares/authenticateMiddleware');
+
+const routers = express.Router();
+
+routers.post('/', authenticateMiddleware, categoryController.createCategory);
+
+module.exports = routers;
