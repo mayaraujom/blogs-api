@@ -1,5 +1,6 @@
 const express = require('express');
 const userController = require('../controllers/user.controller');
+const { authenticateMiddleware } = require('../middlewares/authenticateMiddleware');
 const {
   validateDisplayName,
   validateEmail,
@@ -8,6 +9,12 @@ const {
 } = require('../middlewares/createUser.validation');
 
 const routers = express.Router();
+
+routers.get(
+  '/',
+  authenticateMiddleware,
+  userController.getUsers,
+);
 
 routers.post(
   '/',
