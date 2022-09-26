@@ -16,6 +16,12 @@ routers.get(
   userController.getUsers,
 );
 
+routers.get(
+  '/:id',
+  authenticateMiddleware,
+  userController.getUserByPk,
+);
+
 routers.post(
   '/',
   validateDisplayName,
