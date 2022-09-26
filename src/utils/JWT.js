@@ -2,9 +2,8 @@ const jwt = require('jsonwebtoken');
 
 const { JWT_SECRET } = process.env;
 
-const generateToken = ({ id, displayName, email }) => {
+const generateToken = ({ displayName, email }) => {
   const payload = {
-    id,
     displayName,
     email,
   };

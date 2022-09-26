@@ -21,7 +21,7 @@ module.exports = {
         allowNull: false
       },
       image: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.STRING
       }
     });

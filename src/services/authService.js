@@ -11,7 +11,7 @@ const authenticate = async ({ email, password }) => {
 
   const user = await User.findOne({
     where: { email, password },
-    attributes: ['id', 'email', 'display_name'],
+    attributes: ['email', 'display_name'],
   });
 
   if (!user) {
