@@ -4,6 +4,8 @@ const { authenticateMiddleware } = require('../middlewares/authenticateMiddlewar
 
 const routers = express.Router();
 
+routers.get('/', authenticateMiddleware, categoryController.getCategories);
+
 routers.post('/', authenticateMiddleware, categoryController.createCategory);
 
 module.exports = routers;
