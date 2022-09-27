@@ -31,4 +31,10 @@ routers.post(
   userController.createUser,
 );
 
+routers.delete(
+  '/me',
+  authenticateMiddleware,
+  userController.deleteUser,
+);
+
 module.exports = routers;

@@ -6,9 +6,9 @@ const {
   validateCategory,
 } = require('../middlewares/createPost.validation');
 const {
-  authorizedUser,
   verifyFields,
 } = require('../middlewares/updatePost.validation');
+const { authorizedUser } = require('../middlewares/authorizedUser.validation');
 const { searchPost } = require('../middlewares/deletePost.validation');
 
 const routers = express.Router();

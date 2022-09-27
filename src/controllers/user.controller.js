@@ -21,8 +21,16 @@ const getUserByPk = async (req, res) => {
   } return res.status(200).json(user);
 };
 
+const deleteUser = async (req, res) => {
+  const { id } = req.locals;
+  await userService.deleteUser(id);
+
+  return res.sendStatus(204);
+};
+
 module.exports = {
   createUser,
   getUsers,
   getUserByPk,
+  deleteUser,
 };
