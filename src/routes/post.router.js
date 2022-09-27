@@ -8,6 +8,8 @@ const {
 
 const routers = express.Router();
 
+routers.get('/', authenticateMiddleware, postController.getAllPosts);
+
 routers.post(
   '/',
   authenticateMiddleware,
