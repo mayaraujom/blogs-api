@@ -9,6 +9,7 @@ const {
   authorizedUser,
   verifyFields,
 } = require('../middlewares/updatePost.validation');
+const { searchPost } = require('../middlewares/deletePost.validation');
 
 const routers = express.Router();
 
@@ -30,6 +31,14 @@ routers.put(
   verifyFields,
   authorizedUser,
   postController.updatePost,
+);
+
+routers.delete(
+  '/:id',
+  authenticateMiddleware,
+  searchPost,
+  authorizedUser,
+  postController.deletePost,
 );
 
 module.exports = routers;
