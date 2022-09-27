@@ -18,6 +18,27 @@ const getAllPosts = async () => {
   return posts;
 };
 
+const getPostByPk = async (id) => {
+  const post = await BlogPost.findOne({
+    where: {
+      id,
+    },
+    include: [
+      {
+        model: User,
+        as: 'user',
+        attributes: { exclude: ['password'] },
+      },
+      {
+        model: Category,
+        as: 'categories',
+      },
+    ],
+  });
+
+  return post;
+};
+
 const createPostCategory = async (categories, postId) => {
   await Promise.all(categories
     .map(async (categoryId) => PostCategory.create({ postId, categoryId })));
@@ -34,4 +55,5 @@ const createPost = async ({ title, content, userId, published, updated, category
 module.exports = {
   createPost,
   getAllPosts,
+  getPostByPk,
 };

@@ -10,6 +10,8 @@ const routers = express.Router();
 
 routers.get('/', authenticateMiddleware, postController.getAllPosts);
 
+routers.get('/:id', authenticateMiddleware, postController.getPostByPk);
+
 routers.post(
   '/',
   authenticateMiddleware,

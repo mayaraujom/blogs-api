@@ -6,6 +6,16 @@ const getAllPosts = async (req, res) => {
   return res.status(200).json(posts);
 };
 
+const getPostByPk = async (req, res) => {
+  const { id } = req.params;
+
+  const post = await postService.getPostByPk(id);
+
+  if (!post) {
+    res.status(404).json({ message: 'Post does not exist' });
+  } res.status(200).json(post);
+};
+
 const createPost = async (req, res) => {
   const { title, content, categoryIds } = req.body;
 
@@ -28,4 +38,5 @@ const createPost = async (req, res) => {
 module.exports = {
   createPost,
   getAllPosts,
+  getPostByPk,
 };
