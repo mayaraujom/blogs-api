@@ -17,7 +17,7 @@ O objetivo do projeto foi desenvolver uma aplicação em Node.js para fazer um C
   * Entre na pasta do repositório que você acabou de clonar
  2. Instale as dependências
   * `npm install`
-  3. Configure as variáveis de ambiente no arquivo .env
+  3. Configure as variáveis de ambiente em um arquivo .env
 
 3. Para iniciar o projeto:
   * `npm start`
