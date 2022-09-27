@@ -14,7 +14,7 @@ const getAllPosts = async () => {
       },
     ],
   });
-  console.log('POSTSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS', posts);
+
   return posts;
 };
 
@@ -52,8 +52,20 @@ const createPost = async ({ title, content, userId, published, updated, category
   return newPost;
 };
 
+const updatePost = async (id, body) => {
+  const { title, content } = body;
+  await BlogPost.update({ title, content }, {
+    where: {
+      id,
+    },
+  });
+  const updated = await getPostByPk(id);
+  return updated;
+};
+
 module.exports = {
   createPost,
   getAllPosts,
   getPostByPk,
+  updatePost,
 };

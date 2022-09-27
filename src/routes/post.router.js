@@ -5,6 +5,10 @@ const {
   validateFields,
   validateCategory,
 } = require('../middlewares/createPost.validation');
+const {
+  authorizedUser,
+  verifyFields,
+} = require('../middlewares/updatePost.validation');
 
 const routers = express.Router();
 
@@ -18,6 +22,14 @@ routers.post(
   validateFields,
   validateCategory,
   postController.createPost,
+);
+
+routers.put(
+  '/:id',
+  authenticateMiddleware,
+  verifyFields,
+  authorizedUser,
+  postController.updatePost,
 );
 
 module.exports = routers;
