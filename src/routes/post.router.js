@@ -13,6 +13,8 @@ const { searchPost } = require('../middlewares/deletePost.validation');
 
 const routers = express.Router();
 
+routers.get('/search', authenticateMiddleware, postController.searchQueryPost);
+
 routers.get('/', authenticateMiddleware, postController.getAllPosts);
 
 routers.get('/:id', authenticateMiddleware, postController.getPostByPk);
