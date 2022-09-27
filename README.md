@@ -13,7 +13,7 @@ O objetivo do projeto foi desenvolver uma aplicação em Node.js para fazer um C
 <strong><h3>Executando o projeto</h3></strong>
   
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-021-b-project-blogs-api.git`.
+  * `git clone git@github.com:mayaraujom/blogs-api.git`.
   * Entre na pasta do repositório que você acabou de clonar
  2. Instale as dependências
   * `npm install`
